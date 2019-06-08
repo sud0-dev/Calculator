@@ -24,7 +24,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginBottom="8dp"
-        android:onClick="modButtonPressed"
         android:text="%"
         app:layout_constraintBottom_toTopOf="@+id/button7"
         app:layout_constraintStart_toEndOf="@+id/root" />
@@ -36,8 +35,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginBottom="8dp"
-        android:onClick="divideButtonPressed"
-        android:text="/"
+        android:text="÷"
         app:layout_constraintBottom_toTopOf="@+id/subtract"
         app:layout_constraintStart_toEndOf="@+id/mod" />
 
@@ -71,8 +69,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginBottom="8dp"
-        android:onClick="multiplyButtonPressed"
-        android:text="*"
+        android:text="x"
         app:layout_constraintBottom_toTopOf="@+id/plus"
         app:layout_constraintStart_toEndOf="@+id/button4" />
 
@@ -103,6 +100,7 @@
         android:ems="10"
         android:gravity="bottom|right"
         android:inputType="none"
+        android:singleLine="true"
         android:textAlignment="gravity"
         android:textAllCaps="false"
         android:textSize="65dp"
@@ -110,7 +108,7 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintHorizontal_bias="0.307"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.236" />

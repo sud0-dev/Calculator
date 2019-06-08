@@ -7,7 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.logging.StreamHandler;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,8 +19,7 @@ public class MainActivity extends AppCompatActivity {
     EditText disText;
     Button add, subtract, multiply, divide, root, mod, calculate, clear, log;
     String str;
-    int num1, num2, i=0;
-    double number;
+    double num1, num2, i=0, number, secondNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +40,6 @@ public class MainActivity extends AppCompatActivity {
         //
 
         disText.setMovementMethod(new ScrollingMovementMethod());
-
-        //disText.setFocusable(false);
-        //disText.setSelection(disText.getText().length());
 
         log = findViewById(R.id.log);
         log.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 else
                     str = str + str1 + " + ";
                 try{
-                    num1 = num1+Integer.parseInt(str1);
+                    num1 = num1 + Double.parseDouble(str1);
                 }catch(NumberFormatException ex){
                     num1 = num1+0;
                 }
@@ -97,6 +96,82 @@ public class MainActivity extends AppCompatActivity {
                 edtNum = findViewById(R.id.number);
                 disText = findViewById(R.id.text);
                 i = 2;
+            }
+        });
+
+        multiply = findViewById(R.id.multiply);
+        multiply.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String str1 = edtNum.getText().toString();
+                if (str == "\0")
+                    str = str1 + " x ";
+                else
+                    str = str + str1 + " x ";
+                try{
+                    num2 = Integer.parseInt(str1);
+                }catch(NumberFormatException ex){
+                    num2 = 1;
+                }
+                if (num1 == 0)
+                    num1 = num2;
+                else
+                    num1 = num1 * num2;
+                disText.setText(str);
+                edtNum.setText("");
+                edtNum = findViewById(R.id.number);
+                disText = findViewById(R.id.text);
+                i = 3;
+            }
+        });
+
+        divide = findViewById(R.id.divide);
+        divide.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String str1 = edtNum.getText().toString();
+                if (str == "\0")
+                    str = str1 + " ÷ ";
+                else
+                    str = str + str1 + " ÷ ";
+                try{
+                    num2 = Double.parseDouble(str1);
+                }catch(NumberFormatException ex){
+                    secondNumber = 1;
+                }
+                if (num1 == 0)
+                    num1 = num2;
+                else
+                    num1 = num1 / num2;
+                disText.setText(str);
+                edtNum.setText("");
+                edtNum = findViewById(R.id.number);
+                disText = findViewById(R.id.text);
+                i = 4;
+            }
+        });
+
+        mod = findViewById(R.id.mod);
+        mod.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String str1 = edtNum.getText().toString();
+                if (str == "\0")
+                    str = str1 + " % ";
+                else
+                    str = str + str1 + " % ";
+                try{
+                    num2 = Double.parseDouble(edtNum.getText().toString());
+                }catch(NumberFormatException ex){
+                    num2 = 0;
+                }
+                if (num1 == 0)
+                    num1 = num2;
+                else
+                    num1 = num1 % num2;
+                disText.setText(str);
+                edtNum.setText("");
+                edtNum = findViewById(R.id.number);
+                disText = findViewById(R.id.text);
+                i = 5;
             }
         });
 
@@ -211,56 +286,11 @@ public class MainActivity extends AppCompatActivity {
         edtNum.setText(str);
     }
 
-    public void multiplyButtonPressed(View buttonView) {
-
-        try{
-            num1 = Integer.parseInt(edtNum.getText().toString());
-        }catch(NumberFormatException ex){
-            num1 = 0;
-        }
-        disText.setText(num1 + "" + " X ");
-        edtNum.setText("");
-        edtNum = findViewById(R.id.number);
-        disText = findViewById(R.id.text);
-        i = 3;
-
-    }
-
-    public void divideButtonPressed(View buttonView) {
-
-        try{
-            num1 = Integer.parseInt(edtNum.getText().toString());
-        }catch(NumberFormatException ex){
-            num1 = 0;
-        }
-        disText.setText(num1 + "" + " / ");
-        edtNum.setText("");
-        edtNum = findViewById(R.id.number);
-        disText = findViewById(R.id.text);
-        i = 4;
-
-    }
-
-    public void modButtonPressed(View buttonView) {
-
-        try{
-            num1 = Integer.parseInt(edtNum.getText().toString());
-        }catch(NumberFormatException ex){
-            num1 = 0;
-        }
-        disText.setText(num1 + "" + " % ");
-        edtNum.setText("");
-        edtNum = findViewById(R.id.number);
-        disText = findViewById(R.id.text);
-        i = 5;
-
-    }
-
     public void rootButtonPressed(View buttonView) {
 
-        try{
+        try {
             num1 = Integer.parseInt(edtNum.getText().toString());
-        }catch(NumberFormatException ex){
+        } catch (NumberFormatException ex) {
             num1 = 0;
         }
         disText.setText(" √  " + num1 + "");
@@ -272,8 +302,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calculateButtonPressed(View buttonView) {
-
-        int calculatedValue;
 //        if(i!=6) {
 //            try{
 //                num2 = Integer.parseInt(edtNum.getText().toString());
@@ -285,12 +313,17 @@ public class MainActivity extends AppCompatActivity {
             String str1 = edtNum.getText().toString();
             str = str + str1;
             try{
-                num1 = num1+Integer.parseInt(str1);
+                num1 = num1+Double.parseDouble(str1);
             }catch(NumberFormatException ex){
-                num1 = num1+0;
+                num1 = num1 + 0;
             }
             disText.setText(str);
-            edtNum.setText(num1 + "");
+            if (num1 % 1 == 0)
+                edtNum.setText((int)num1 + "");
+            else {
+                double answer = Math.round(num1 * 100000) / 100000.0;
+                edtNum.setText(answer + "");
+            }
             num1 = num2 =0;
             str = "\0";
         }
@@ -305,35 +338,82 @@ public class MainActivity extends AppCompatActivity {
                 num1 = num1-0;
             }
             disText.setText(str);
-            edtNum.setText(num1 + "");
+            if (num1 % 1 == 0)
+                edtNum.setText((int)num1 + "");
+            else {
+                double answer = Math.round(num1 * 100000) / 100000.0;
+                edtNum.setText(answer + "");
+            }
             num1 = num2 =0;
             str = "\0";
 
-//            disText.setText(num1 + "" + " - " + num2 + "");
-//            calculatedValue = num1 - num2;
-//            num1 = calculatedValue;
-//            edtNum.setText(calculatedValue + "");
         }
 
         else if (i == 3) {
-            disText.setText(num1 + "" + " X " + num2 + "");
-            calculatedValue = num1 * num2;
-            num1 = calculatedValue;
-            edtNum.setText(calculatedValue + "");
+
+            String str1 = edtNum.getText().toString();
+            str = str + str1;
+            try{
+                num1 = num1*Integer.parseInt(str1);
+            }catch(NumberFormatException ex){
+                num1 = num1*1;
+            }
+            disText.setText(str);
+            if (num1 % 1 == 0)
+                edtNum.setText((int)num1 + "");
+            else {
+                double answer = Math.round(num1 * 100000) / 100000.0;
+                edtNum.setText(answer + "");
+            }
+            num1 = num2 =0;
+            str = "\0";
+
         }
 
         else if (i == 4) {
-            disText.setText(num1 + "" + " / " + num2 + "");
-            double calcValue = (double)num1 / num2;
-            //num1 = calcValue;
-            edtNum.setText(calcValue + "");
+
+            String str1 = edtNum.getText().toString();
+            str = str + str1;
+            try{
+                num1 = num1/Double.parseDouble(str1);
+            }catch(NumberFormatException ex){
+                num1 = num1/1;
+            }
+            disText.setText(str);
+            if (num1 % 1 == 0)
+                edtNum.setText((int)num1 + "");
+            else {
+                double answer = Math.round(num1 * 100000) / 100000.0;
+                edtNum.setText(answer + "");
+            }
+            num1 = num2 = 0;
+            str = "\0";
         }
 
         else if (i == 5) {
-            disText.setText(num1 + "" + " % " + num2 + "");
-            calculatedValue = num1 % num2;
-            num1 = calculatedValue;
-            edtNum.setText(calculatedValue + "");
+
+            String str1 = edtNum.getText().toString();
+            str = str + str1;
+            try{
+                num1 = num1 % Double.parseDouble(str1);
+            }catch(NumberFormatException ex){
+                num1 = num1 / 1;
+            }
+            disText.setText(str);
+            if (num1 % 1 == 0)
+                edtNum.setText((int)num1 + "");
+            else {
+                double answer = Math.round(num1 * 100000) / 100000.0;
+                edtNum.setText(answer + "");
+            }
+            num1 = num2 = 0;
+            str = "\0";
+
+//            num2 = Double.parseDouble(edtNum.getText().toString());
+//            disText.setText((int)num1 + "" + " % " + (int)num2 + "");
+//            calculatedValue = num1 % num2;
+//            num1 = calculatedValue;
+//            edtNum.setText(calculatedValue + "");
         }
 
         else if (i == 6) {
