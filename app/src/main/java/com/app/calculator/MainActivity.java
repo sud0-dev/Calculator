@@ -1,18 +1,36 @@
 package com.app.calculator;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.TextView;
-import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
+
+public class MainActivity extends BaseActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
 
     TextView edtNum, disText;
     Button add, subtract, multiply, divide, root, mod, dot, calculate, clear, log, zero, one, two, three, four, five, six, seven, eight, nine;
     String str;
     double num1, num2, i=0, number, secondNumber;
+    CompoundButton darkMode;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         edtNum = findViewById(R.id.number);
-        disText = findViewById(R.id.text);
+//        disText = findViewById(R.id.text);
         str = "\0";
         num1 = num2 = 0;
         calculate = findViewById(R.id.buttonEquals);
@@ -113,10 +131,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     num1 = num2;
                 else
                     num1 = num1 * num2;
-                disText.setText(str);
+//                disText.setText(str);
                 edtNum.setText("");
                 edtNum = findViewById(R.id.number);
-                disText = findViewById(R.id.text);
+//                disText = findViewById(R.id.text);
                 i = 3;
             }
         });
@@ -138,10 +156,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     num1 = num2;
                 else
                     num1 = num1 / num2;
-                disText.setText(str);
+//                disText.setText(str);
                 edtNum.setText("");
                 edtNum = findViewById(R.id.number);
-                disText = findViewById(R.id.text);
+//                disText = findViewById(R.id.text);
                 i = 4;
             }
         });
@@ -202,8 +220,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if(str.length() <= 0) {
                     edtNum.setText("");
                     edtNum = findViewById(R.id.number);
-                    disText.setText("");
-                    disText = findViewById(R.id.text);
+//                    disText.setText("");
+//                    disText = findViewById(R.id.text);
                 }
                 else {
                     str = str.substring(0, str.length() - 1);
@@ -218,8 +236,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 edtNum.setText("");
                 edtNum = findViewById(R.id.number);
-                disText.setText("");
-                disText = findViewById(R.id.text);
+//                disText.setText("");
+//                disText = findViewById(R.id.text);
                 num1 = num2 = 0;
                 str = "\0";
                 return true;
@@ -239,7 +257,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }catch(NumberFormatException ex){
                         num1 = num1 + 0;
                     }
-                    disText.setText(str);
+//                    disText.setText(str);
                     if (num1 % 1 == 0)
                         edtNum.setText((int)num1 + "");
                     else {
@@ -259,7 +277,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }catch(NumberFormatException ex){
                         num1 = num1-0;
                     }
-                    disText.setText(str);
+//                    disText.setText(str);
                     if (num1 % 1 == 0)
                         edtNum.setText((int)num1 + "");
                     else {
@@ -280,7 +298,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }catch(NumberFormatException ex){
                         num1 = num1*1;
                     }
-                    disText.setText(str);
+//                    disText.setText(str);
                     if (num1 % 1 == 0)
                         edtNum.setText((int)num1 + "");
                     else {
@@ -301,7 +319,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }catch(NumberFormatException ex){
                         num1 = num1/1;
                     }
-                    disText.setText(str);
+//                    disText.setText(str);
                     if (num1 % 1 == 0)
                         edtNum.setText((int)num1 + "");
                     else {
@@ -321,7 +339,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }catch(NumberFormatException ex){
                         num1 = num1 / 1;
                     }
-                    disText.setText(str);
+//                    disText.setText(str);
                     if (num1 % 1 == 0)
                         edtNum.setText((int)num1 + "");
                     else {
@@ -334,7 +352,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 else if (i == 6) {
                     str = edtNum.getText().toString();
-                    disText.setText(" √ " + str);
+//                    disText.setText(" √ " + str);
                     try {
                         num1 = Double.parseDouble(str);
                     } catch (NumberFormatException ex) {
@@ -353,7 +371,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 else if (i == 7) {
                     str = edtNum.getText().toString();
-                    disText.setText("log(" + str + ")");
+//                    disText.setText("log(" + str + ")");
                     try{
                         num1 = Integer.parseInt(edtNum.getText().toString());
                     }catch(NumberFormatException ex){
@@ -366,6 +384,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         });
+
+
     }
 
     @Override
@@ -404,5 +424,49 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
         edtNum.setText(str);
+    }
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.nav_item1:
+//                darkMode = findViewById(R.id.darkMode);
+//                sharedPreferences = getSharedPreferences("theme_pref", Context.MODE_PRIVATE);
+//                String currentTheme = sharedPreferences.getString("current_theme", "light");
+//
+//                final SharedPreferences mPreferences;
+//                mPreferences = getSharedPreferences("theme_pref", MODE_PRIVATE);
+//                @SuppressLint("CommitPrefEdits") final SharedPreferences.Editor preferencesEditor = mPreferences.edit();
+//
+//                if(currentTheme.equals("light")){
+//                    darkMode.setChecked(false);
+//                } else {
+//                    darkMode.setChecked(true);
+//                }
+//
+//                darkMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                        if (isChecked){
+//                            preferencesEditor.putString("current_theme", "dark").apply();
+//                        } else {
+//                            preferencesEditor.putString("current_theme", "light").apply();
+//                        }
+//                        MainActivity.this.recreate();
+//                    }
+//                });
+//        }
+//        drawer.closeDrawer(GravityCompat.START);
+        int id = item.getItemId();
+
+        if (id == R.id.darkMode) {
+           darkMode.setChecked(!darkMode.isChecked());
+            Snackbar.make(item.getActionView(), (darkMode.isChecked()) ? "is checked" : "not checked", Snackbar.LENGTH_SHORT).setAction("Action", null).show();
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+        //return false;
     }
 }

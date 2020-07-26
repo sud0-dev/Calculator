@@ -1,270 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/linear"
-        style="?android:listSeparatorTextViewStyle"
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="250dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp">
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/number"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="100dp"
-            android:fontFamily="@font/regular"
-            android:gravity="end"
-            android:textSize="50sp" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/text"
-            android:layout_width="match_parent"
-            android:gravity="end"
-            android:layout_height="100dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="150dp"
-            android:layout_marginBottom="0dp"
-            android:fontFamily="@font/regular"
-            android:inputType="text"
-            android:textSize="40sp" />
-
-    </RelativeLayout>
-
-    <GridLayout
-        android:id="@+id/gridLayout"
-        android:layout_width="wrap_content"
-        style="?android:weekSeparatorLineColor"
+    <LinearLayout
+        android:layout_weight="1.95"
         android:layout_height="match_parent"
-        android:layout_below="@+id/linear"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="center"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
-        android:columnCount="3"
+        android:backgroundTint="@color/black"
+        android:layout_width="wrap_content"
         android:orientation="horizontal"
-        android:rowCount="4"
-        android:useDefaultMargins="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:baselineAligned="false">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button7"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:text="@string/seven"
-            android:textColor="@color/colorPrimaryDark"
-            android:layout_height="105dp"
-            android:layout_width="85dp"
-            android:textSize="30sp"
-            android:fontFamily="@font/regular" />
+    </LinearLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button8"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:text="@string/eight"
-            android:textColor="@color/colorPrimaryDark"
-            android:layout_height="105dp"
-            android:layout_width="85dp"
-            android:textSize="30sp"
-            android:fontFamily="@font/regular" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button9"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:text="@string/nine"
-            android:textColor="@color/colorPrimaryDark"
-            android:layout_height="105dp"
-            android:layout_width="85dp"
-            android:textSize="30sp"
-            android:fontFamily="@font/regular" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button4"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:text="@string/four"
-            android:textColor="@color/colorPrimaryDark"
-            android:layout_height="105dp"
-            android:layout_width="85dp"
-            android:textSize="30sp"
-            android:fontFamily="@font/regular" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button5"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:text="@string/five"
-            android:textColor="@color/colorPrimaryDark"
-            android:layout_height="105dp"
-            android:layout_width="85dp"
-            android:textSize="30sp"
-            android:fontFamily="@font/regular" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button6"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:text="@string/six"
-            android:textColor="@color/colorPrimaryDark"
-            android:layout_height="105dp"
-            android:layout_width="85dp"
-            android:textSize="30sp"
-            android:fontFamily="@font/regular" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button1"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:text="@string/one"
-            android:textColor="@color/colorPrimaryDark"
-            android:layout_height="105dp"
-            android:layout_width="85dp"
-            android:textSize="30sp"
-            android:fontFamily="@font/regular" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button2"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:text="@string/two"
-            android:textColor="@color/colorPrimaryDark"
-            android:layout_height="105dp"
-            android:layout_width="85dp"
-            android:textSize="30sp"
-            android:fontFamily="@font/regular" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button3"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:text="@string/three"
-            android:textColor="@color/colorPrimaryDark"
-            android:layout_height="105dp"
-            android:layout_width="85dp"
-            android:textSize="30sp"
-            android:fontFamily="@font/regular" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button0"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:text="@string/zero"
-            android:textColor="@color/colorPrimaryDark"
-            android:layout_height="105dp"
-            android:layout_width="85dp"
-            android:textSize="30sp"
-            android:fontFamily="@font/regular" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonDot"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:text="@string/decimal"
-            android:textColor="@color/colorPrimaryDark"
-            android:layout_height="105dp"
-            android:layout_width="85dp"
-            android:textSize="30sp"
-            android:fontFamily="@font/regular" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonEquals"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:text="@string/equals"
-            android:textColor="@color/colorPrimaryDark"
-            android:layout_height="105dp"
-            android:layout_width="85dp"
-            android:textSize="30sp"
-            android:fontFamily="@font/regular" />
-    </GridLayout>
-
-    <View
-        android:layout_width="1dp"
+    <TextView
+        android:id="@+id/number"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="250dp"
-        android:layout_marginBottom="0dp"
-        android:layout_toEndOf="@+id/gridLayout"
-        android:background="@color/separator" />
+        android:layout_width="match_parent"
+        android:textSize="75sp"
+        android:gravity="end"
+        android:layout_weight="1.2"/>
 
-
-    <GridLayout
-        android:id="@+id/gridLayout2"
+    <LinearLayout
+        android:layout_weight="1.1"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/black"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linear"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
-        android:layout_toEndOf="@+id/gridLayout"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/gridLayout">
+        android:orientation="horizontal"
+        android:baselineAligned="false">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/clearText"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_height="84dp"
-            android:layout_width="120dp"
-            android:textSize="30sp"
-            android:layout_row="0"
-            android:layout_column="4"
-            android:text="@string/clear"
-            android:textColor="@color/colorPrimaryDark"
-            android:fontFamily="@font/regular" />
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnCount="3"
+            android:rowCount="4">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/divide"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_height="84dp"
-            android:layout_width="120dp"
-            android:textSize="30sp"
-            android:text="@string/divide"
-            android:textColor="@color/colorPrimaryDark"
-            android:fontFamily="@font/regular" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button7"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="@string/seven"
+                android:textSize="40sp"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/black"/>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/multiply"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_height="84dp"
-            android:layout_width="120dp"
-            android:textSize="30sp"
-            android:text="@string/multiply"
-            android:textColor="@color/colorPrimaryDark"
-            android:fontFamily="@font/regular" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button8"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="@string/eight"
+                android:textSize="40sp"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/black"/>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/subtract"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_height="84dp"
-            android:layout_width="120dp"
-            android:textSize="30sp"
-            android:text="@string/minus"
-            android:textColor="@color/colorPrimaryDark"
-            android:fontFamily="@font/regular" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button9"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="@string/nine"
+                android:textSize="40sp"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/black"/>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/plus"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_height="84dp"
-            android:layout_width="120dp"
-            android:textSize="30sp"
-            android:text="@string/plus"
-            android:textColor="@color/colorPrimaryDark"
-            android:fontFamily="@font/regular" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button4"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="@string/four"
+                android:textSize="40sp"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/black"/>
 
-    </GridLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button5"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="@string/five"
+                android:textSize="40sp"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/black"/>
 
-</RelativeLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button6"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="@string/six"
+                android:textSize="40sp"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/black"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button1"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="@string/one"
+                android:textSize="40sp"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/black"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button2"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="@string/two"
+                android:textSize="40sp"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/black"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button3"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="@string/three"
+                android:textSize="40sp"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/black"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button0"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="@string/zero"
+                android:textSize="40sp"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/black"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonDot"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="@string/decimal"
+                android:textSize="40sp"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/black"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonEquals"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="@string/equals"
+                android:textSize="40sp"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/black"/>
+
+        </GridLayout>
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:columnCount="1"
+            android:rowCount="5">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/clearText"
+                android:layout_rowWeight="1"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:textSize="25sp"
+                android:text="@string/clear"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/colorPrimaryDark"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/divide"
+                android:layout_rowWeight="1"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:textSize="25sp"
+                android:text="@string/divide"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/colorPrimaryDark"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/multiply"
+                android:layout_rowWeight="1"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:textSize="25sp"
+                android:text="@string/multiply"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/colorPrimaryDark"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/subtract"
+                android:layout_rowWeight="1"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:textSize="25sp"
+                android:text="@string/minus"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/colorPrimaryDark"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/plus"
+                android:layout_rowWeight="1"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:textSize="25sp"
+                android:text="@string/plus"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/colorPrimaryDark"/>
+
+        </GridLayout>
+    </LinearLayout>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+</LinearLayout>

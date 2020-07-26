@@ -772,6 +772,7 @@ color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
 color background_material_light
+color black
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
 color bright_foreground_inverse_material_dark
@@ -1535,6 +1536,7 @@ id coordinator
 id custom
 id customPanel
 id cut
+id darkMode
 id date_picker_actions
 id decor_content_parent
 id default_activity_button
@@ -1548,6 +1550,7 @@ id dimensions
 id direct
 id disableHome
 id divide
+id drawer_layout
 id dropdown_menu
 id edit_query
 id end
@@ -1564,6 +1567,7 @@ id filled
 id fitToContents
 id fixed
 id forever
+id fragment_container
 id ghost_view
 id ghost_view_holder
 id gone
@@ -1587,7 +1591,6 @@ id largeLabel
 id left
 id line1
 id line3
-id linear
 id listMode
 id list_item
 id masked
@@ -1621,6 +1624,7 @@ id mtrl_picker_text_input_range_end
 id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id multiply
+id nav_item1
 id navigation_header_container
 id never
 id noScroll
@@ -1818,6 +1822,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout layout_switch
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title
@@ -1846,12 +1851,14 @@ layout mtrl_picker_header_title_text
 layout mtrl_picker_header_toggle
 layout mtrl_picker_text_input_date
 layout mtrl_picker_text_input_date_range
+layout nav_header
 layout notification_action
 layout notification_action_tombstone
 layout notification_template_custom_big
 layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout sample
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
@@ -1868,6 +1875,7 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+menu drawer_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
@@ -1953,6 +1961,8 @@ string mtrl_picker_toggle_to_day_selection
 string mtrl_picker_toggle_to_text_input_mode
 string mtrl_picker_toggle_to_year_selection
 string multiply
+string navigation_drawer_close
+string navigation_drawer_open
 string nine
 string one
 string password_toggle_content_description
@@ -2189,6 +2199,7 @@ style Base_Widget_MaterialComponents_TextView
 style CardView
 style CardView_Dark
 style CardView_Light
+style DarkMode
 style Divider
 style Divider_Horizontal
 style Divider_Vertical
@@ -2652,6 +2663,7 @@ style Widget_MaterialComponents_Toolbar_Primary
 style Widget_MaterialComponents_Toolbar_PrimarySurface
 style Widget_MaterialComponents_Toolbar_Surface
 style Widget_Support_CoordinatorLayout
+style WindowAnimationTransition
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth
