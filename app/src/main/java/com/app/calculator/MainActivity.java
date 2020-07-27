@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -25,7 +26,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
 
-    TextView edtNum, disText;
+    EditText edtNum, disText;
     Button add, subtract, multiply, divide, root, mod, dot, calculate, clear, log, zero, one, two, three, four, five, six, seven, eight, nine;
     String str;
     double num1, num2, i=0, number, secondNumber;
