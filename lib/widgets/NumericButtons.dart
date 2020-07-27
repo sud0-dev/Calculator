@@ -10,7 +10,10 @@ class NumericButton extends StatelessWidget {
       onPressed: () {
         controller.text += number.toString();
       },
-      child: Text(number),
+      child: Text(
+        number.toString(),
+        style: TextStyle(fontSize: 40.0),
+      ),
     );
   }
 }
