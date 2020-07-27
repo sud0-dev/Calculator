@@ -1,5 +1,6 @@
 import 'package:calculator/utils/Variables.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class NumericButton extends StatelessWidget {
   final number;
@@ -12,7 +13,10 @@ class NumericButton extends StatelessWidget {
       },
       child: Text(
         number.toString(),
-        style: TextStyle(fontSize: 40.0),
+        style: GoogleFonts.openSans(
+          fontStyle: FontStyle.normal,
+          fontSize: 40.0,
+        ),
       ),
     );
   }

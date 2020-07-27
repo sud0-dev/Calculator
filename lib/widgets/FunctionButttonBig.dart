@@ -1,5 +1,6 @@
 import 'package:calculator/utils/Variables.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class FunctionButtonBig extends StatelessWidget {
   final function;
@@ -10,7 +11,10 @@ class FunctionButtonBig extends StatelessWidget {
       onPressed: () {},
       child: Text(
         function,
-        style: TextStyle(fontSize: 30.0),
+        style: GoogleFonts.openSans(
+          fontStyle: FontStyle.normal,
+          fontSize: 30.0,
+        ),
       ),
     );
   }
