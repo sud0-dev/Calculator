@@ -4,6 +4,7 @@ import 'package:calculator/widgets/FunctionButttonBig.dart';
 import 'package:calculator/widgets/NumericButtons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 
 void main() {
   runApp(MyApp());
@@ -65,10 +66,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Row(
                   children: [
                     Flexible(
-                      flex: 6,
+                      flex: 18,
                       child: GridView.count(
                         crossAxisCount: 3,
-                        childAspectRatio: 0.83,
+                        childAspectRatio: 0.92,
                         children: [
                           NumericButton(number: 7),
                           NumericButton(number: 8),
@@ -86,17 +87,30 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                     Flexible(
-                      flex: 3,
-                      child: GridView.count(
-                        crossAxisCount: 1,
-                        childAspectRatio: 1.6,
-                        children: [
-                          FunctionButtonSmall(function: '⌫'),
-                          FunctionButtonSmall(function: '÷'),
-                          FunctionButtonSmall(function: '×'),
-                          FunctionButtonSmall(function: '-'),
-                          FunctionButtonSmall(function: '+'),
-                        ],
+                      flex: 7,
+                      child: Ink(
+                        height: MediaQuery.of(context).size.height / 2,
+                        color: Colors.amber,
+                        child: GridView.count(
+                          crossAxisCount: 1,
+                          childAspectRatio: 1.45,
+                          children: [
+                            FunctionButtonSmall(
+                                icon: MaterialCommunityIcons.backspace_outline),
+                            FunctionButtonSmall(
+                                icon: MaterialCommunityIcons.division),
+                            FunctionButtonSmall(
+                                icon: MaterialCommunityIcons.multiplication),
+                            FunctionButtonSmall(
+                                icon: MaterialCommunityIcons.minus),
+                            FunctionButtonSmall(
+                                icon: MaterialCommunityIcons.plus),
+                            // FunctionButtonSmall(icon: Icons.,),
+                            // FunctionButtonSmall(function: '×'),
+                            // FunctionButtonSmall(function: '-'),
+                            // FunctionButtonSmall(function: '+'),
+                          ],
+                        ),
                       ),
                     ),
                     Flexible(
