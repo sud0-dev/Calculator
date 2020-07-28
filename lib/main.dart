@@ -46,54 +46,74 @@ class _MyHomePageState extends State<MyHomePage> {
     ));
     return Scaffold(
       body: Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Flexible(
             flex: 1,
             child: Stack(
               children: [
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: Row(
-                    children: [
-                      IconButton(
-                        icon: Text(
-                          'DEG',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        onPressed: () {},
+                Ink(
+                  color: Colors.grey[900],
+                  child: TextField(
+                    textAlign: TextAlign.end,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 60.0,
+                    ),
+                    readOnly: true,
+                    controller: controller,
+                    maxLines: 10,
+                    onChanged: (value) {},
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.only(
+                        top: 80,
+                        right: 30,
+                        left: 30,
                       ),
-                      Spacer(),
-                      IconButton(
-                        icon: Text(
-                          'DEG',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        onPressed: () {},
-                      ),
-                    ],
+                      border: InputBorder.none,
+                    ),
                   ),
                 ),
-                TextField(
-                  textAlign: TextAlign.end,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 60.0,
-                  ),
-                  readOnly: true,
-                  controller: controller,
-                  maxLines: 10,
-                  onChanged: (value) {},
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.only(
-                      top: 80,
-                      right: 30,
-                      left: 30,
+                Positioned(
+                  top: 30.0,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    width: MediaQuery.of(context).size.width,
+                    child: Row(
+                      children: [
+                        InkWell(
+                          customBorder: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(3.0),
+                            child: Text(
+                              'DEG',
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                          onTap: () {
+                            print('Hello');
+                          },
+                        ),
+                        Spacer(),
+                        InkWell(
+                          radius: 100.0,
+                          customBorder: CircleBorder(),
+                          child: Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Icon(
+                              Icons.more_vert,
+                              color: Colors.white,
+                            ),
+                          ),
+                          onTap: () {
+                            print('Hello');
+                          },
+                        ),
+                      ],
                     ),
-                    border: InputBorder.none,
-                    hintText: "Description",
-                    fillColor: Colors.grey[900],
-                    filled: true,
                   ),
                 ),
               ],
