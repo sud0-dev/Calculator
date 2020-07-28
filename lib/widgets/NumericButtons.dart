@@ -7,11 +7,13 @@ class NumericButton extends StatelessWidget {
   const NumericButton({Key key, this.number}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
+    return IconButton(
+      splashRadius: 55.0,
+      splashColor: Colors.black12,
       onPressed: () {
-        controller.text += number.toString();
+        controller.text = number.toString();
       },
-      child: Text(
+      icon: Text(
         number.toString(),
         style: GoogleFonts.openSans(
           fontStyle: FontStyle.normal,

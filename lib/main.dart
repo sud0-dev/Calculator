@@ -38,94 +38,130 @@ class _MyHomePageState extends State<MyHomePage> {
   int i = 0;
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Flexible(
-                flex: 1,
-                child: Container(
-                  child: TextField(
-                    readOnly: true,
-                    controller: controller,
-                    maxLines: 40,
-                    onChanged: (value) {},
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: "Description",
-                      fillColor: Colors.grey[900],
-                      filled: true,
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent, //top bar color
+      statusBarIconBrightness: Brightness.light, //top bar icons
+      systemNavigationBarColor: Colors.transparent, //bottom bar color
+      systemNavigationBarIconBrightness: Brightness.dark, //bottom bar icons
+    ));
+    return Scaffold(
+      body: Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Flexible(
+            flex: 1,
+            child: Stack(
+              children: [
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: Row(
+                    children: [
+                      IconButton(
+                        icon: Text(
+                          'DEG',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        onPressed: () {},
+                      ),
+                      Spacer(),
+                      IconButton(
+                        icon: Text(
+                          'DEG',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
+                ),
+                TextField(
+                  textAlign: TextAlign.end,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 60.0,
+                  ),
+                  readOnly: true,
+                  controller: controller,
+                  maxLines: 10,
+                  onChanged: (value) {},
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.only(
+                      top: 80,
+                      right: 30,
+                      left: 30,
+                    ),
+                    border: InputBorder.none,
+                    hintText: "Description",
+                    fillColor: Colors.grey[900],
+                    filled: true,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Flexible(
+            flex: 1,
+            child: Row(
+              children: [
+                Flexible(
+                  flex: 18,
+                  child: GridView.count(
+                    padding: EdgeInsets.zero,
+                    crossAxisCount: 3,
+                    childAspectRatio: 0.95,
+                    children: [
+                      NumericButton(number: 7),
+                      NumericButton(number: 8),
+                      NumericButton(number: 9),
+                      NumericButton(number: 4),
+                      NumericButton(number: 5),
+                      NumericButton(number: 6),
+                      NumericButton(number: 1),
+                      NumericButton(number: 2),
+                      NumericButton(number: 3),
+                      NumericButton(number: 0),
+                      FunctionButtonBig(function: '.'),
+                      FunctionButtonBig(function: '='),
+                    ],
+                  ),
+                ),
+                Flexible(
+                  flex: 7,
+                  child: Ink(
+                    height: MediaQuery.of(context).size.height / 2,
+                    color: Colors.amber,
+                    child: GridView.count(
+                      padding: EdgeInsets.zero,
+                      crossAxisCount: 1,
+                      childAspectRatio: 1.4,
+                      children: [
+                        FunctionButtonSmall(
+                            icon: MaterialCommunityIcons.backspace_outline),
+                        FunctionButtonSmall(
+                            icon: MaterialCommunityIcons.division),
+                        FunctionButtonSmall(
+                            icon: MaterialCommunityIcons.multiplication),
+                        FunctionButtonSmall(icon: MaterialCommunityIcons.minus),
+                        FunctionButtonSmall(icon: MaterialCommunityIcons.plus),
+                        // FunctionButtonSmall(icon: Icons.,),
+                        // FunctionButtonSmall(function: '×'),
+                        // FunctionButtonSmall(function: '-'),
+                        // FunctionButtonSmall(function: '+'),
+                      ],
                     ),
                   ),
                 ),
-              ),
-              Flexible(
-                flex: 1,
-                child: Row(
-                  children: [
-                    Flexible(
-                      flex: 18,
-                      child: GridView.count(
-                        crossAxisCount: 3,
-                        childAspectRatio: 0.92,
-                        children: [
-                          NumericButton(number: 7),
-                          NumericButton(number: 8),
-                          NumericButton(number: 9),
-                          NumericButton(number: 4),
-                          NumericButton(number: 5),
-                          NumericButton(number: 6),
-                          NumericButton(number: 1),
-                          NumericButton(number: 2),
-                          NumericButton(number: 3),
-                          NumericButton(number: 0),
-                          FunctionButtonBig(function: '.'),
-                          FunctionButtonBig(function: '='),
-                        ],
-                      ),
-                    ),
-                    Flexible(
-                      flex: 7,
-                      child: Ink(
-                        height: MediaQuery.of(context).size.height / 2,
-                        color: Colors.amber,
-                        child: GridView.count(
-                          crossAxisCount: 1,
-                          childAspectRatio: 1.45,
-                          children: [
-                            FunctionButtonSmall(
-                                icon: MaterialCommunityIcons.backspace_outline),
-                            FunctionButtonSmall(
-                                icon: MaterialCommunityIcons.division),
-                            FunctionButtonSmall(
-                                icon: MaterialCommunityIcons.multiplication),
-                            FunctionButtonSmall(
-                                icon: MaterialCommunityIcons.minus),
-                            FunctionButtonSmall(
-                                icon: MaterialCommunityIcons.plus),
-                            // FunctionButtonSmall(icon: Icons.,),
-                            // FunctionButtonSmall(function: '×'),
-                            // FunctionButtonSmall(function: '-'),
-                            // FunctionButtonSmall(function: '+'),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Flexible(
-                      flex: 1,
-                      child: Container(
-                        height: MediaQuery.of(context).size.height,
-                        color: Colors.blue[900],
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ],
+                Flexible(
+                  flex: 1,
+                  child: Container(
+                    height: MediaQuery.of(context).size.height,
+                    color: Colors.blue[900],
+                  ),
+                )
+              ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

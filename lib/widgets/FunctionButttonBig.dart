@@ -6,9 +6,11 @@ class FunctionButtonBig extends StatelessWidget {
   const FunctionButtonBig({Key key, this.function}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
+    return IconButton(
+      splashRadius: 55.0,
+      splashColor: Colors.black12,
       onPressed: () {},
-      child: Text(
+      icon: Text(
         function,
         style: GoogleFonts.openSans(
           fontStyle: FontStyle.normal,
