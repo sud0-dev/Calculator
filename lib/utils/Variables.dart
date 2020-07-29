@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
 
 TextEditingController controller = new TextEditingController();
-String number;
+var number;
+Function operation;

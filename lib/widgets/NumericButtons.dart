@@ -11,7 +11,7 @@ class NumericButton extends StatelessWidget {
       splashRadius: 55.0,
       splashColor: Colors.black12,
       onPressed: () {
-        controller.text = number.toString();
+        controller.text += number.toString();
       },
       icon: Text(
         number.toString(),

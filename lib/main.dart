@@ -1,4 +1,5 @@
 import 'package:calculator/utils/Variables.dart';
+import 'package:calculator/widgets/ClearButton.dart';
 import 'package:calculator/widgets/FunctionButtonSmall.dart';
 import 'package:calculator/widgets/FunctionButttonBig.dart';
 import 'package:calculator/widgets/NumericButtons.dart';
@@ -52,6 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Stack(
               children: [
                 Ink(
+                  height: MediaQuery.of(context).size.height / 2,
                   color: Colors.grey[900],
                   child: TextField(
                     textAlign: TextAlign.end,
@@ -61,13 +63,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     readOnly: true,
                     controller: controller,
-                    maxLines: 10,
+                    maxLines: 1,
                     onChanged: (value) {},
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.only(
                         top: 80,
                         right: 30,
-                        left: 30,
                       ),
                       border: InputBorder.none,
                     ),
@@ -155,14 +156,23 @@ class _MyHomePageState extends State<MyHomePage> {
                       crossAxisCount: 1,
                       childAspectRatio: 1.4,
                       children: [
+                        ClearButton(),
                         FunctionButtonSmall(
-                            icon: MaterialCommunityIcons.backspace_outline),
+                          icon: MaterialCommunityIcons.division,
+                          tooltip: 'divide',
+                        ),
                         FunctionButtonSmall(
-                            icon: MaterialCommunityIcons.division),
+                          icon: MaterialCommunityIcons.multiplication,
+                          tooltip: 'multiply',
+                        ),
                         FunctionButtonSmall(
-                            icon: MaterialCommunityIcons.multiplication),
-                        FunctionButtonSmall(icon: MaterialCommunityIcons.minus),
-                        FunctionButtonSmall(icon: MaterialCommunityIcons.plus),
+                          icon: MaterialCommunityIcons.minus,
+                          tooltip: 'subtract',
+                        ),
+                        FunctionButtonSmall(
+                          icon: MaterialCommunityIcons.plus,
+                          tooltip: 'add',
+                        ),
                         // FunctionButtonSmall(icon: Icons.,),
                         // FunctionButtonSmall(function: '×'),
                         // FunctionButtonSmall(function: '-'),
