@@ -15,6 +15,8 @@ class ClearButton extends StatelessWidget {
       onLongPress: () {
         if (controller.text != null && controller.text.length != 0) {
           controller.text = '';
+          text = '';
+          operation = null;
         }
       },
       child: IconButton(

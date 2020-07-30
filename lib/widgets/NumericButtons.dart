@@ -1,3 +1,4 @@
+import 'package:calculator/models/Calculate.dart';
 import 'package:calculator/utils/Variables.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,6 +13,19 @@ class NumericButton extends StatelessWidget {
       splashColor: Colors.black12,
       onPressed: () {
         controller.text += number.toString();
+        print('text:' + text);
+        var operand;
+        operand =
+            controller.text.substring(text.length, controller.text.length);
+        print('operand:' + operand);
+        try {
+          operand = int.parse(operand);
+        } catch (e) {
+          operand = double.parse(operand);
+        }
+        if (operation != null) {
+          print('result:' + calculate(operation, operand).toString());
+        }
       },
       icon: Text(
         number.toString(),

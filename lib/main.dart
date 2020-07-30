@@ -1,3 +1,4 @@
+import 'package:calculator/models/Calculate.dart';
 import 'package:calculator/utils/Variables.dart';
 import 'package:calculator/widgets/ClearButton.dart';
 import 'package:calculator/widgets/FunctionButtonSmall.dart';
@@ -64,7 +65,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     readOnly: true,
                     controller: controller,
                     maxLines: 1,
-                    onChanged: (value) {},
+                    // onChanged: (value) {
+
+                    // },
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.only(
                         top: 80,
@@ -173,10 +176,6 @@ class _MyHomePageState extends State<MyHomePage> {
                           icon: MaterialCommunityIcons.plus,
                           tooltip: 'add',
                         ),
-                        // FunctionButtonSmall(icon: Icons.,),
-                        // FunctionButtonSmall(function: '×'),
-                        // FunctionButtonSmall(function: '-'),
-                        // FunctionButtonSmall(function: '+'),
                       ],
                     ),
                   ),

@@ -1,12 +1,7 @@
 import 'package:calculator/utils/Variables.dart';
 
-calculate(Function operation, var operand) {
-  var operand2;
-  try {
-    operand2 = int.parse(controller.text);
-  } catch (e) {
-    operand2 = double.parse(controller.text);
-  }
+calculate(Function operation, var operand2) {
+  print('In calculate:' + operand.toString());
   return operation(operand, operand2);
 }
 
