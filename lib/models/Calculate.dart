@@ -1,8 +1,12 @@
 import 'package:calculator/utils/Variables.dart';
 
 calculate(Function operation, var operand2) {
-  print('In calculate:' + operand.toString());
-  return operation(operand, operand2);
+  print('In calculate: ' +
+      'operand1: ' +
+      operand.toString() +
+      ' operand2: ' +
+      operand2.toString());
+  return operand = operation(operand, operand2);
 }
 
 add(var operand, var operand2) {

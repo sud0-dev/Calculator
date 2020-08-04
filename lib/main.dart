@@ -1,4 +1,3 @@
-import 'package:calculator/models/Calculate.dart';
 import 'package:calculator/utils/Variables.dart';
 import 'package:calculator/widgets/ClearButton.dart';
 import 'package:calculator/widgets/FunctionButtonSmall.dart';

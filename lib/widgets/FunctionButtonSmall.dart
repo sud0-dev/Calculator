@@ -52,30 +52,3 @@ assignOperation(String tooltip) {
     }
   }
 }
-
-// sendToCalculate(String tooltip) {
-//   if (controller.text != null) {
-//     try {
-//       number = int.parse(controller.text);
-//     } catch (e) {
-//       number = double.parse(controller.text);
-//     }
-//   }
-//   switch (tooltip) {
-//     case 'add':
-//       calculate(add, number);
-//       break;
-//     case 'subtract':
-//       calculate(subtract, number);
-//       break;
-//     case 'multiply':
-//       calculate(multiply, number);
-//       break;
-//     case 'divide':
-//       calculate(divide, number);
-//       break;
-//     default:
-//       controller.text =
-//           controller.text.substring(0, controller.text.length - 2);
-//   }
-// }
