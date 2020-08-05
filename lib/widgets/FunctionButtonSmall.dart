@@ -51,4 +51,5 @@ assignOperation(String tooltip) {
       operand = double.parse(operand);
     }
   }
+  operand += result;
 }
