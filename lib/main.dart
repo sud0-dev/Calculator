@@ -35,8 +35,11 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
+enum PopMenu { harder, smarter, selfStarter, tradingCharter }
+
 class _MyHomePageState extends State<MyHomePage> {
   int i = 0;
+  PopMenu selection = PopMenu.harder;
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -104,12 +107,35 @@ class _MyHomePageState extends State<MyHomePage> {
                         InkWell(
                           radius: 100.0,
                           customBorder: CircleBorder(),
-                          child: Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: Icon(
+                          child: PopupMenuButton<PopMenu>(
+                            icon: Icon(
                               Icons.more_vert,
                               color: Colors.white,
                             ),
+                            onSelected: (PopMenu result) {
+                              setState(() {
+                                selection = result;
+                              });
+                            },
+                            itemBuilder: (BuildContext context) =>
+                                <PopupMenuEntry<PopMenu>>[
+                              const PopupMenuItem<PopMenu>(
+                                value: PopMenu.harder,
+                                child: Text('History'),
+                              ),
+                              const PopupMenuItem<PopMenu>(
+                                value: PopMenu.smarter,
+                                child: Text('Change Theme'),
+                              ),
+                              const PopupMenuItem<PopMenu>(
+                                value: PopMenu.selfStarter,
+                                child: Text('Send Feedback'),
+                              ),
+                              const PopupMenuItem<PopMenu>(
+                                value: PopMenu.tradingCharter,
+                                child: Text('Help'),
+                              ),
+                            ],
                           ),
                           onTap: () {
                             print('Hello');
